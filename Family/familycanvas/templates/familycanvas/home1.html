@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Family Canvas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    
+    .navbar{
+  background-color: #e7964b;
+  border-color: #c0392b;
+}
+.navbar.navbar-brand {
+  color: #1a687c;
+}
+.navbar.navbar-brand:hover,
+.navbar.navbar-brand:focus {
+  color: #f7a9aa;
+}
+.navbar.navbar-text {
+  color: #2D7D24;
+}
+.navbar.navbar-nav > li > a {
+  color: #1a687c;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar.navbar-nav > li > a:focus {
+  color: #f7a9aa;
+}
+.navbar.navbar-nav > .active > a,
+.navbar.navbar-nav > .active > a:hover,
+.navbar.navbar-nav > .active > a:focus {
+  color: #f7a9aa;
+  background-color: #c0392b;
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+  color: #f7a9aa;
+  background-color: #c0392b;
+}
+.navbar .navbar-toggle {
+  border-color: #c0392b;
+}
+.navbar .navbar-toggle:hover,
+.navbar.navbar-toggle:focus {
+  background-color: #c0392b;
+}
+.navbar.navbar-toggle .icon-bar {
+  background-color: #1a687c;
+}
+.navbar.navbar-collapse,
+.navbar.navbar-form {
+  border-color: #1a687c;
+}
+.navbar.navbar-link {
+  color: #1a687c;
+}
+.navbar.navbar-link:hover {
+  color: #f7a9aa;
+}
+
+@media (max-width: 767px) {
+  .navbar.navbar-nav .open .dropdown-menu > li > a {
+    color: #1a687c;
+  }
+  .navbar.navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar.navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f7a9aa;
+  }
+  .navbar.navbar-nav .open .dropdown-menu > .active > a,
+  .navbar.navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar.navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f7a9aa;
+    background-color: #c0392b;
+  }
+}
+
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 75%; /* Set width to 100% */
+      margin: auto;
+      max-height:450px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      font-size:200px;
+      display: none; 
+     }
+   }
+  
+  
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      {% load static %}
+      <a class="navbar-brand" href="#">
+      
+     </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        
+        <li>
+               <div class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" ><br><font color = "white">&nbsp;View </font></a>
+                   <ul class="dropdown-menu">
+                            <li><a href="#">Story</a></li>
+                             <li class="divider"></li>
+                            <li><a href="#">Events</a></li>
+                             <li class="divider"></li>
+                            <li><a href="#">Gallery</a></li>
+                             <li class="divider"></li>
+                            <li><a href="#">Family Tree</a></li>
+                    </ul>
+            </div>
+        </li>
+        <li><div class="dropdown" >
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><br><font color = "white">&nbsp;&nbsp;&nbsp;Family Groups </font></a>
+                     <ul class="dropdown-menu">
+                                <li><a href="createGroup">Create Group</a></li>
+                                 <li class="divider"></li>
+                                <li><a href="#">View Groups</a></li>
+                     </ul>
+                </div>
+         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login/ Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
+      <li data-target="#myCarousel" data-slide-to="8"></li>
+      <li data-target="#myCarousel" data-slide-to="9"></li>
+    </ol>
+{% load static %}}
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="{% static "familycanvas/1.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Family is not an important thing, it is every thing...</h1>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="{% static "familycanvas/2.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>The love of a family is the life's greatest blessing.</h1>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="{% static "familycanvas/3.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Family forever..always together</h1>
+        </div>
+      </div>
+       <div class="item">
+        <img src="{% static "familycanvas/4.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Our most treasured heirlooms are the memories of our family..</h1>
+         </div>
+      </div>
+    
+      <div class="item">
+        <img src="{% static "familycanvas/5.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Family.....where LIFE begins and LOVE never ends..</h1>
+         
+        </div>
+      </div>
+      <div class="item">
+        <img src="{% static "familycanvas/6.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Nothing is better than going home to family and eating good food and relaxing.</h1>
+  
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="{% static "familycanvas/7.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Family is like a music.. some high nodes..some low nodes..but always a BEAUTIFUL SONG</h1>
+          
+        </div>
+      </div>
+       <div class="item">
+        <img src="{% static "familycanvas/8.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Today's lil moments become tomorrow's precious memories..</h1>
+ 
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="{% static "familycanvas/9.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>Having somewhere to go is Home.. Having someone to love is Family..
+          Having both is Blessing</h1>
+          
+        </div>
+      </div>
+       <div class="item">
+        <img src="{% static "familycanvas/10.jpg" %}" alt="My image"/>
+        <div class="carousel-caption">
+          <h1>The love in our family flows strong and deep,leaving us memories to treasure and keep..</h1>
+          
+        </div>
+      </div>
+    
+      
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+  
+<div class="container text-center" bg-color = "pink">    
+  <h3>What We Do</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+    
+    <a href = "#">
+      <img src="{% static "familycanvas/story.jpg" %}" class="img-circle" class = "img-responsive" alt="Cinque Terre" width="304" height="236"> </a>
+      <p><h3>Creates stories for your family</h3></p>
+    </div>
+    <div class="col-sm-4"> 
+          <a href = "#">
+      <img src="{% static "familycanvas/event.jpg" %}" class="img-circle" class = "img-responsive" alt="Cinque Terre" width="304" height="236"> </a>
+      
+      <p><h3>Shares Events happening in your family</h3></p>    
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+      <p><h1 class = "text-primary"> <strong>Your FamilyCanvas</strong></h1></p>
+       <p>Keep your family connected.</p>
+       <p>Share your family's history with future generations.</p>
+        <p>Upload pictures,audios and videos.</p>
+         <p>CONNECT YOUR FAMILY NOW!</p>
+      </div>
+     </div>
+  </div>
+   <div class = "row">  
+     <div class="col-sm-4">
+         <a href = "#">
+         
+                    <img src="{% static "familycanvas/gallery.jpg" %}" class="img-circle" class = "img-responsive" alt="Cinque Terre" width="304" height="236">
+                    
+                     </a>
+      <p><h3>Serves you an online gallery</h3></p>
+    </div>
+     <div class="col-sm-4">
+         <a href = "#">
+      <img src="{% static "familycanvas/Family Tree.jpg" %}" class="img-circle" class = "img-responsive" alt="Cinque Terre" width="304" height="236"> </a>
+      <p><h3>Builds a family tree</h3></p>
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+       <p><h1 class = "text-primary"> <strong>About Us</strong></h1></p>
+       <p>It's all about family.</p>
+       <p>We believe that family brings meaning to life.</p>
+        <p>A service to all at no cost.</p>
+         <p>Names from all over the world.</p>
+      </div>
+  </div>
+</div><br>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>
+

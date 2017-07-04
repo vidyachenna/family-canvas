@@ -1,0 +1,25 @@
+<script language="javascript">
+    var count = 0;
+     function add() {
+
+	//Create an input type dynamically.
+    //System.out.println();
+     count = count + 1;
+	var element = document.createElement("input");
+var br = document.createElement("br");
+	//Assign different attributes to the element.
+	element.setAttribute("type", "email");
+	element.setAttribute("placeholder", "enter mail");
+	
+
+	var mail = document.getElementById("new_mail");
+
+	//Append the element in page (in span).
+	mail.appendChild(br);
+	mail.appendChild(element);
+	mail.appendChild(br);
+    alert("the count is" + count); 		
+
+    }
+</script>
+
