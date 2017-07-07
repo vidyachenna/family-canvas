@@ -127,17 +127,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="home">Home</a></li>
+        <li class="active"><a href="http://127.0.0.1:8000/familycanvas/home/">Home</a></li>
         
         <li>
                <div class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle" ><br><font color = "white">View </font></a>
                    <ul class="dropdown-menu">
-                            <li><a href="#">Story</a></li>
+                            <li><a href="http://127.0.0.1:8000/familycanvas/story">Story</a></li>
                              <li class="divider"></li>
-                            <li><a href="#">Events</a></li>
+                            <li><a href="http://127.0.0.1:8000/familycanvas/event">Events</a></li>
                              <li class="divider"></li>
-                            <li><a href="#">Gallery</a></li>
+                            <li><a href="http://127.0.0.1:8000/familycanvas/gallery">Gallery</a></li>
                              <li class="divider"></li>
                             <li><a href="#">Family Tree</a></li>
                     </ul>
@@ -154,13 +154,13 @@
          </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="http://127.0.0.1:8000/familycanvas/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<form action = "groupCreated" method=”post”>
+<form method=”post”>
 {% csrf_token %}
 {{form.as_p }}
 <input type = "submit" value = "submit">submit</button> 

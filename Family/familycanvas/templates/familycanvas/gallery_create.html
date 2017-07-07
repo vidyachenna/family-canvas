@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create story</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+     function save(){
+         window.alert("your story has been saved")
+      }
+  </script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    
+    .navbar{
+  background-color: #e7964b;
+  border-color: #c0392b;
+}
+.navbar.navbar-brand {
+  color: #1a687c;
+}
+.navbar.navbar-brand:hover,
+.navbar.navbar-brand:focus {
+  color: #f7a9aa;
+}
+.navbar.navbar-text {
+  color: #1a687c;
+}
+.navbar.navbar-nav > li > a {
+  color: #1a687c;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar.navbar-nav > li > a:focus {
+  color: #f7a9aa;
+}
+.navbar.navbar-nav > .active > a,
+.navbar.navbar-nav > .active > a:hover,
+.navbar.navbar-nav > .active > a:focus {
+  color: #f7a9aa;
+  background-color: #c0392b;
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+  color: #f7a9aa;
+  background-color: #c0392b;
+}
+.navbar .navbar-toggle {
+  border-color: #c0392b;
+}
+.navbar .navbar-toggle:hover,
+.navbar.navbar-toggle:focus {
+  background-color: #c0392b;
+}
+.navbar.navbar-toggle .icon-bar {
+  background-color: #1a687c;
+}
+.navbar.navbar-collapse,
+.navbar.navbar-form {
+  border-color: #1a687c;
+}
+.navbar.navbar-link {
+  color: #1a687c;
+}
+.navbar.navbar-link:hover {
+  color: #f7a9aa;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #1a687c;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f7a9aa;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f7a9aa;
+    background-color: #c0392b;
+  }
+}
+</style>
+</head>
+<body>
+    {% load static %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    
+      <a class="navbar-brand" href="#">
+      
+     </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://127.0.0.1:8000/familycanvas/home">Home</a></li>
+        
+        <li>
+               <div class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" ><br><font color = "white">&nbsp;View </font></a>
+                   <ul class="dropdown-menu">
+                            <li><a href="http://127.0.0.1:8000/familycanvas/story">Story</a></li>
+                             <li class="divider"></li>
+                            <li><a href="http://127.0.0.1:8000/familycanvas/event">Events</a></li>
+                             <li class="divider"></li>
+                            <li><a href="http://127.0.0.1:8000/familycanvas/gallery">Gallery</a></li>
+                             <li class="divider"></li>
+                            <li><a href="#">Family Tree</a></li>
+                    </ul>
+            </div>
+        </li>
+        <li><div class="dropdown" >
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><br><font color = "white">&nbsp;&nbsp;&nbsp;Family Groups </font></a>
+                     <ul class="dropdown-menu">
+                                <li><a href="createGroup">Create Group</a></li>
+                                 <li class="divider"></li>
+                                <li><a href="#">View Groups</a></li>
+                     </ul>
+                </div>
+         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://127.0.0.1:8000/familycanvas/login/"><span class="glyphicon glyphicon-log-in"></span> Login/ Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <div align = "center">
+  {% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" onclick = save()>Save pics and videos</button>
+    <a href="creategallery" class="btn btn-sm btn-primary register">upload again</a>	
+  </form>
+     
+       <br>
+               
+     {% endblock %}
+   </div>
+</body>
+</html>
